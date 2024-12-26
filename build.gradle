@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.github.jetplugins'
-version '1.1.9'
+version '1.1.9-yhml'
 
 java.sourceCompatibility = 1.8
 java.targetCompatibility = 1.8
@@ -43,6 +43,7 @@ dependencies {
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
+// https://plugins.jetbrains.com/docs/intellij/plugin-dependencies.html
 intellij {
     version = '2022.3'
     sandboxDir = "${project.rootDir}/.sandbox"

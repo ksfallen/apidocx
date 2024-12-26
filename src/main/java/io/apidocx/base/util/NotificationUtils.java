@@ -5,7 +5,14 @@ import com.intellij.notification.NotificationGroup;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.ui.popup.Balloon;
+import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.ui.JBColor;
 import io.apidocx.config.DefaultConstants;
+
+import java.awt.*;
 
 /**
  * 消息通知工具类.
@@ -78,5 +85,19 @@ public final class NotificationUtils {
             }
         }
         Notifications.Bus.notify(notification);
+    }
+
+    public static void showPopupBalloon(Editor editor, final String result) {
+        ApplicationManager.getApplication().invokeLater(
+                () -> {
+                    JBPopupFactory factory = JBPopupFactory.getInstance();
+                    Color color = new Color(86, 182, 194);
+                    Color darkColor = new Color(50, 53, 59);
+                    factory.createHtmlTextBalloonBuilder(result, null, new JBColor(color, darkColor), null)
+                            .setFadeoutTime(3000)
+                            .createBalloon()
+                            .show(factory.guessBestPopupLocation(editor), Balloon.Position.above);
+                }
+        );
     }
 }

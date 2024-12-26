@@ -70,7 +70,12 @@
             <action id="apidocx.CopyAsCurlAction" class="io.apidocx.handle.curl.CopyAsCurlAction"/>
             <action id="apidocx.CopyAsMarkdownAction" class="io.apidocx.handle.markdown.CopyAsMarkdownAction"/>
             <action id="apidocx.OpenSettings" class="io.apidocx.action.OpenSettingsAction"/>
+            <action id="apidocx.CopyRestUrlAction" class="io.apidocx.handle.action.CopyRestUrlAction">
+                <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+                <add-to-group group-id="GenerateGroup" anchor="last"/>
+            </action>
         </group>
+
     </actions>
 
     <change-notes><![CDATA[

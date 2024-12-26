@@ -28,6 +28,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiJavaFile;
 import com.intellij.psi.PsiMethod;
 import com.intellij.psi.util.PsiTreeUtil;
+import io.apidocx.base.util.ClipboardUtils;
 import io.apidocx.base.util.ConcurrentUtils;
 import io.apidocx.base.util.NotificationUtils;
 import io.apidocx.base.util.PsiFileUtils;
@@ -262,6 +263,7 @@ public abstract class AbstractAction extends AnAction {
                         ApiUploadResult uploadResult = urls.get(0);
                         String url = urls.size() == 1 ? uploadResult.getApiUrl() : uploadResult.getCategoryUrl();
                         if (url != null && !url.isEmpty()) {
+                            ClipboardUtils.setClipboard(url);
                             NotificationAction linkAction = NotificationAction.createSimple(url, () -> BrowserUtil.browse(url));
                             NotificationUtils.notify(NotificationType.INFORMATION, "Upload successful", "", linkAction);
                         } else {
