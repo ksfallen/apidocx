@@ -72,7 +72,6 @@
             <action id="apidocx.OpenSettings" class="io.apidocx.action.OpenSettingsAction"/>
             <action id="apidocx.CopyRestUrlAction" class="io.apidocx.handle.action.CopyRestUrlAction">
                 <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-                <add-to-group group-id="GenerateGroup" anchor="last"/>
             </action>
         </group>
 
